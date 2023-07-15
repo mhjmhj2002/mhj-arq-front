@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Subscription } from 'rxjs';
 import { StorageService } from './_services/storage.service';
 import { AuthService } from './_services/auth.service';
 
@@ -32,6 +31,7 @@ export class AppComponent {
   }
 
   logout(): void {
+    this.storageService.clean();
     this.authService.logout().subscribe({
       next: res => {
         console.log(res);
